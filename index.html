@@ -4,99 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>誠誠的秘密網站</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #fbd3e9, #bb99dd);
-            color: #4a2c66;
-        }
-        #login {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-        #login input[type="password"] {
-            padding: 10px;
-            font-size: 1em;
-            border: 2px solid #bb99dd;
-            border-radius: 5px;
-            margin: 10px 0;
-        }
-        #login button {
-            padding: 10px 20px;
-            font-size: 1em;
-            color: #fff;
-            background-color: #6d3a8c;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #login button:hover {
-            background-color: #4a2c66;
-        }
-        #content {
-            display: none;
-        }
-        header {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        header .counter {
-            font-size: 1.5em;
-            margin-top: 10px;
-            color: #6d3a8c;
-        }
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-        .content h2 {
-            font-size: 2em;
-            margin: 20px 0;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-        .gallery img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-        }
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-        footer {
-            margin-top: 20px;
-            padding: 10px 0;
-            background-color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-            font-size: 0.9em;
-            color: #6d3a8c;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <title>登入 - 誠誠的秘密網站</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="login">
@@ -105,44 +14,6 @@
         <input type="password" id="password" placeholder="Enter password">
         <button onclick="checkPassword()">Enter</button>
     </div>
-    <div id="content">
-        <header>
-            <h1>庭庭跟誠誠的幸福之旅</h1>
-            <div class="counter" id="counter"></div>
-        </header>
-        <div class="content">
-            <h2>庭庭與誠誠的幸福時刻~</h2>
-            <div class="gallery" id="gallery">
-                <img src="IMG_8513.JPG" alt="Memory 1">
-                <img src="IMG_8514.JPG" alt="Memory 2">
-                <img src="IMG_8515.JPG" alt="Memory 3">
-            </div>
-        </div>
-        <footer>
-            誠誠最愛❤️依庭了~~
-        </footer>
-    </div>
-    <script>
-        const correctPassword = "19941128"; // Set your password here
-
-        function checkPassword() {
-            const input = document.getElementById("password").value;
-            if (input === correctPassword) {
-                document.getElementById("login").style.display = "none";
-                document.getElementById("content").style.display = "block";
-                calculateDays(); // Initialize counter
-            } else {
-                alert("輸入錯誤，請再輸入一次.");
-            }
-        }
-
-        function calculateDays() {
-            const startDate = new Date('2024-05-18');
-            const today = new Date();
-            const diffTime = Math.abs(today - startDate);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            document.getElementById('counter').innerText = `依庭與茂誠已經戀愛 ${diffDays}天了喔 💕`;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
