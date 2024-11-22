@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Information</title>
+</head>
+<body>
+    <h1>JavaScript 能獲取的資訊</h1>
+    <ul id="info"></ul>
+    <script>
+        const infoList = document.getElementById("info");
+
+        // 日期與時間
+        const now = new Date();
+        infoList.innerHTML += `<li>當前時間：${now.toString()}</li>`;
+
+        // 瀏覽器資訊
+        infoList.innerHTML += `<li>用戶代理：${navigator.userAgent}</li>`;
+        infoList.innerHTML += `<li>語言：${navigator.language}</li>`;
+        infoList.innerHTML += `<li>平台：${navigator.platform}</li>`;
+
+        // 螢幕資訊
+        infoList.innerHTML += `<li>螢幕解析度：${screen.width} x ${screen.height}</li>`;
+        infoList.innerHTML += `<li>視窗尺寸：${window.innerWidth} x ${window.innerHeight}</li>`;
+
+        // 網路狀態
+        infoList.innerHTML += `<li>在線狀態：${navigator.onLine ? "在線" : "離線"}</li>`;
+    </script>
+    <iframe src="https://docs.google.com/forms/d/e/form_id/viewform?embedded=true" width="100%" height="500"></iframe>
+</body>
+<audio autoplay loop>
+    <source src="BGM.mp3.mp3" type="audio/mpeg">
+</audio>
+</html>
