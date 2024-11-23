@@ -162,7 +162,7 @@ footer {
 }
 
 #cute-image img {
-    width: 200px;    /* 設置圖片寬度為 100px */
+    width: 150px;    /* 設置圖片寬度為 100px */
     height: auto;    /* 自適應高度，保持比例 */
 }
 
