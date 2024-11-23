@@ -152,7 +152,24 @@ footer {
         opacity: 0;
     }
 }
+#cute-image {
+    position: fixed; /* 固定在視窗內，不會隨滾動改變位置 */
+    bottom: 10px;    /* 距離底部 10px */
+    left: 10px;      /* 距離左邊 10px */
+    z-index: 1000;   /* 確保圖片不會被其他元素遮住 */
+    opacity: 0.9;    /* 稍微透明，避免影響主視覺 */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
 
+#cute-image img {
+    width: 100px;    /* 設置圖片寬度為 100px */
+    height: auto;    /* 自適應高度，保持比例 */
+}
+
+#cute-image:hover {
+    transform: scale(1.2); /* 滑過時放大圖片 */
+    opacity: 1;           /* 滑過時全透明顯示 */
+}
 
 
 
