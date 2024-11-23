@@ -99,12 +99,6 @@ footer {
     color: #6d3a8c;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
-body {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(to bottom, #fbd3e9, #bb99dd);
-    color: #4a2c66;
-}
 
 .bubble {
     position: absolute;
