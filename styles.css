@@ -4,7 +4,9 @@ body {
     padding: 0;
     background: linear-gradient(to bottom, #fbd3e9, #bb99dd);
     color: #4a2c66;
-    touch-action: manipulation;
+    position: relative;
+    overflow: auto;
+    
 }
 
 #login {
@@ -110,6 +112,7 @@ footer {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
     animation: float 10s infinite ease-in-out;
+    pointer-events: none;
 }
 
 .bubble:nth-child(1) {
@@ -150,14 +153,6 @@ footer {
     }
 }
 
-.bubble {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    animation: float 10s infinite ease-in-out;
-    z-index: 1; /* 確保氣泡不被遮蓋 */
-}
+
 
 
