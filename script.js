@@ -21,3 +21,24 @@ function calculateDays() {
 if (document.getElementById('counter')) {
     calculateDays();
 }
+const container = document.getElementById("bubble-container");
+
+for (let i = 0; i < 5; i++) { // 生成 10 個氣泡
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+
+    // 隨機位置
+    bubble.style.left = `${Math.random() * 100}%`;
+    bubble.style.top = `${Math.random() * 100}%`;
+
+    // 隨機大小
+    const size = Math.random() * 20 + 5; // 大小範圍 20px ~ 70px
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+
+    // 隨機動畫時長和延遲
+    bubble.style.animationDuration = `${Math.random() * 15 + 7}s`;
+    bubble.style.animationDelay = `${Math.random() * 2}s`;
+
+    container.appendChild(bubble);
+}
