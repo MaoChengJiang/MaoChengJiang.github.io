@@ -42,3 +42,33 @@ for (let i = 0; i < 5; i++) { // 生成 10 個氣泡
 
     container.appendChild(bubble);
 }
+// 動態加載相簿
+fetch('albums.json')
+  .then(res => res.json())
+  .then(albums => {
+    const container = document.getElementById('albums-container');
+    albums.forEach(album => {
+      // 相簿標題
+      const section = document.createElement('section');
+      section.className = 'album';
+
+      const title = document.createElement('h2');
+      title.textContent = album.name;
+      section.appendChild(title);
+
+      // 圖庫
+      const gallery = document.createElement('div');
+      gallery.className = 'gallery';
+      album.images.forEach(src => {
+        const fig = document.createElement('figure');
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = album.name;
+        fig.appendChild(img);
+        gallery.appendChild(fig);
+      });
+      section.appendChild(gallery);
+      container.appendChild(section);
+    });
+  })
+  .catch(err => console.error('載入相簿失敗：', err));

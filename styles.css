@@ -6,41 +6,9 @@ body {
     color: #4a2c66;
     position: relative;
     overflow: auto;
-    
 }
 
-#login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-#login input[type="password"] {
-    padding: 10px;
-    font-size: 1em;
-    border: 2px solid #bb99dd;
-    border-radius: 5px;
-    margin: 10px 0;
-}
-
-#login button {
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #6d3a8c;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#login button:hover {
-    background-color: #4a2c66;
-}
-
+/* header 與計數器 */
 header {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
@@ -62,19 +30,26 @@ header h1 {
     color: #6d3a8c;
 }
 
-.gallery {
+/* 首頁封面縮圖水平排列 */
+.covers-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    padding: 20px 0;
 }
 
-figure {
+.cover-card {
+    flex: 0 0 auto;
     text-align: center;
     max-width: 200px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-figure img {
+.cover-card img {
     width: 100%;
     height: auto;
     border-radius: 10px;
@@ -82,16 +57,18 @@ figure img {
     transition: transform 0.3s ease-in-out;
 }
 
-figure img:hover {
+.cover-card img:hover {
     transform: scale(1.05);
 }
 
-figcaption {
-    margin-top: 10px;
+.cover-card figcaption {
+    margin-top: 8px;
     font-size: 1em;
     color: #6d3a8c;
     font-style: italic;
 }
+
+/* footer */
 footer {
     margin-top: 20px;
     padding: 10px 0;
@@ -102,11 +79,9 @@ footer {
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
+/* 泡泡動畫 */
 .bubble {
     position: absolute;
-    left: 50%; /* 改為隨機生成，避免集中 */
-    top: 100%; /* 從畫面底部開始 */
     width: 5px;
     height: 5px;
     background: rgba(255, 255, 255, 0.7);
@@ -148,28 +123,53 @@ footer {
         opacity: 1;
     }
     100% {
-        transform: translateY(-1200px) scale(1.5); /* 增大移動範圍 */
+        transform: translateY(-1200px) scale(1.5);
         opacity: 0;
     }
 }
+
+/* 可愛小圖 */
 #cute-image {
-    position: absolute; 
-    bottom: 10px;    /* 距離底部 10px */
-    left: 10px;      /* 距離左邊 10px */
-    z-index: 1000;   /* 確保圖片不會被其他元素遮住 */
-    opacity: 0.9;    /* 稍微透明，避免影響主視覺 */
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+    opacity: 0.9;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 #cute-image img {
-    width: 150px;    /* 設置圖片寬度為 100px */
-    height: auto;    /* 自適應高度，保持比例 */
+    width: 150px;
+    height: auto;
 }
 
 #cute-image:hover {
-    transform: scale(1.2); /* 滑過時放大圖片 */
-    opacity: 1;           /* 滑過時全透明顯示 */
+    transform: scale(1.2);
+    opacity: 1;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
 }
 
+.gallery-grid figure {
+    margin: 0;
+    text-align: center;
+}
 
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;        /* 限制每張最大寬度不超過 300px */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
 
