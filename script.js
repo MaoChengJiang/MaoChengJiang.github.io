@@ -1,4 +1,4 @@
-const correctPassword = "19941128"; // 設定密碼
+const correctPassword = "20240518"; // 設定密碼
 
 function checkPassword() {
     const input = document.getElementById("password").value;
