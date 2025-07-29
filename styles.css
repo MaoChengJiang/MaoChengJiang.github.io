@@ -202,4 +202,11 @@ footer {
 .gallery-grid img:hover {
     transform: scale(1.05);
 }
-
+.corner-image {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: auto;
+  z-index: 9999;
+}
