@@ -6,6 +6,7 @@ body {
     color: #4a2c66;
     position: relative;
     overflow: auto;
+    padding-bottom: 50px;
 }
 #login {
     display: flex;
@@ -209,4 +210,18 @@ footer {
   width: 100px;
   height: auto;
   z-index: 9999;
+}
+.floral-border-decoration {
+  position: fixed; /* 讓它固定在視窗的某個位置，不隨捲動而移動 */
+  /*top: 330;*/          /* 如果你想放在頁面頂部 */
+  bottom: 0;  /* 如果你想放在頁面底部，則改用 bottom: 0; top: auto; */
+  left: 0;
+  width: 100%; /* 讓它佔滿整個視窗寬度 */
+  height: 50px; /* 固定高度，您可以根據花花圖片的高度調整 */
+  background-image: url('flower2.png'); /* 替換成你實際的圖片路徑 */
+  background-repeat: repeat-x; /* 讓圖片在水平方向重複 */
+  background-size: auto 100%; /* 讓背景圖片的高度填滿容器高度，寬度自動調整 */
+  z-index: 999; /* 確保它顯示在其他內容的上方，您可以調整這個值 */
+  /* 如果你的圖片本身不是半透明，可以加上 opacity */
+  opacity: 1; 
 }
