@@ -204,7 +204,7 @@ footer {
     transform: scale(1.05);
 }
 .corner-image {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 20px;
   width: 100px;
