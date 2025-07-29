@@ -165,7 +165,7 @@ footer {
     bottom: 10px;
     left: 10px;
     z-index: 1000;
-    opacity: 0.9;
+    opacity: 1;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
