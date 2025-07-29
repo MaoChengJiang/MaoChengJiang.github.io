@@ -156,9 +156,9 @@ footer {
 
 /* 可愛小圖 */
 #cute-image {
-    position: absolute;
+    position: fixed;
     bottom: 30px;
-    left: 10px;
+    left: 5px;
     z-index: 1000;
     opacity: 1;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -198,6 +198,7 @@ footer {
 .gallery-grid img:hover {
     transform: scale(1.05);
 }
+/* 登入畫面小企鵝 */
 .corner-image {
   position: fixed;
   bottom: 20px;
@@ -216,7 +217,7 @@ footer {
   background-image: url('flower2.png'); /* 替換成你實際的圖片路徑 */
   background-repeat: repeat-x; /* 讓圖片在水平方向重複 */
   background-size: auto 100%; /* 讓背景圖片的高度填滿容器高度，寬度自動調整 */
-  z-index: 999; /* 確保它顯示在其他內容的上方，您可以調整這個值 */
+  z-index: 99; /* 確保它顯示在其他內容的上方，您可以調整這個值 */
   /* 如果你的圖片本身不是半透明，可以加上 opacity */
   opacity: 1; 
 }
