@@ -14,7 +14,7 @@ function calculateDays() {
     const today = new Date();
     const diffTime = Math.abs(today - startDate);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    document.getElementById('counter').innerText = `依庭與茂誠已經戀愛 ${diffDays}天了喔 💕`;
+    document.getElementById('counter').innerText = `庭庭與誠誠已經戀愛 ${diffDays}天了喔 💕`;
 }
 
 // 如果在主頁，初始化天數計算

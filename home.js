@@ -1,8 +1,11 @@
 // 計數器
-(function(){
-  const start = new Date(2024,4,18);
-  const days = Math.floor((Date.now() - start) / 86400000);
-  document.getElementById('counter').textContent = `第 ${days} 天 ❤️`;
+(function calculateDays() {
+    const startDate = new Date('2024-05-18');
+    const today = new Date();
+    const diffTime = Math.abs(today - startDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    document.getElementById('counter').innerText = `庭庭與誠誠已經戀愛 ${diffDays}天了喔 💕`;
+    
 })();
 
 fetch('albums.json')
