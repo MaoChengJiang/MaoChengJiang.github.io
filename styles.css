@@ -204,7 +204,7 @@ footer {
     transform: scale(1.05);
 }
 .corner-image {
-  position: fixed;
+  position: absolute;
   bottom: 20px;
   right: 20px;
   width: 100px;
@@ -212,7 +212,7 @@ footer {
   z-index: 9999;
 }
 .floral-border-decoration {
-  position: fixed; /* 讓它固定在視窗的某個位置，不隨捲動而移動 */
+  position: absolute; /* 讓它固定在視窗的某個位置，不隨捲動而移動 */
   /*top: 330;*/          /* 如果你想放在頁面頂部 */
   bottom: 0;  /* 如果你想放在頁面底部，則改用 bottom: 0; top: auto; */
   left: 0;
