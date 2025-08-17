@@ -157,7 +157,7 @@ footer {
 /* 可愛小圖 */
 #cute-image {
     position: fixed;
-    bottom: 5px;
+    bottom: 0px;
     left: 5px;
     z-index: 1000;
     opacity: 1;
