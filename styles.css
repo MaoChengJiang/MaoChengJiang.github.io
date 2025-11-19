@@ -1,13 +1,18 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Microsoft JhengHei', 'PingFang TC', 'Arial', sans-serif; /* 微軟正黑體 */
     margin: 0;
     padding: 0;
     background: linear-gradient(to bottom, #fbd3e9, #bb99dd);
     color: #4a2c66;
     position: relative;
-    overflow: auto;
-    padding-bottom: 50px;
+    min-height: 100vh;
+    padding-bottom: 80px; /* 避免 footer 蓋住內容 */
+    box-sizing: border-box;
 }
+
+a { text-decoration: none; color: inherit; }
+
+/* --- 登入頁面 --- */
 #login {
     display: flex;
     flex-direction: column;
@@ -15,209 +20,288 @@ body {
     justify-content: center;
     height: 100vh;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px); /* 毛玻璃特效 */
+}
+
+#login h1 {
+    margin-bottom: 20px;
+    color: #6d3a8c;
+    text-shadow: 2px 2px 0px #fff;
 }
 
 #login input[type="password"] {
-    padding: 10px;
-    font-size: 1em;
+    padding: 12px;
+    font-size: 1.1em;
     border: 2px solid #bb99dd;
-    border-radius: 5px;
+    border-radius: 25px;
     margin: 10px 0;
+    outline: none;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+#login input[type="password"]:focus {
+    border-color: #6d3a8c;
 }
 
 #login button {
-    padding: 10px 20px;
-    font-size: 1em;
+    padding: 10px 30px;
+    font-size: 1.1em;
     color: #fff;
     background-color: #6d3a8c;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(109, 58, 140, 0.3);
 }
 
 #login button:hover {
-    background-color: #4a2c66;
+    background-color: #5a2d75;
+    transform: translateY(-2px);
 }
-/* header 與計數器 */
+
+/* --- Header 與計數器 --- */
 header {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px 20px;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
 }
+
+.header-content {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-link {
+    position: absolute;
+    left: 0;
+    font-size: 1.1em;
+    color: #6d3a8c;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.5);
+    transition: background 0.3s;
+}
+.back-link:hover { background: rgba(255,255,255,0.9); }
+
+.logout-btn {
+    position: absolute;
+    right: 0;
+    background-color: #bb99dd;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s;
+}
+.logout-btn:hover { background-color: #9b7cc4; }
 
 .counter {
-    font-size: 1.5em;
-    margin-top: 10px;
+    font-size: 1.3em;
+    font-weight: bold;
     color: #6d3a8c;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px 25px;
+    border-radius: 50px;
+    box-shadow: inset 0 0 10px rgba(187, 153, 221, 0.2);
 }
 
-/* 首頁封面縮圖水平排列 */
+/* --- 首頁相簿列表 --- */
 .covers-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .cover-card {
-    flex: 0 0 auto;
-    text-align: center;
-    max-width: 200px;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin: 0;
     display: flex;
     flex-direction: column;
+}
+
+.cover-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.cover-card a {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .cover-card img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 1 / 1; /* 正方形封面 */
+    object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-}
-
-.cover-card img:hover {
-    transform: scale(1.05);
+    margin-bottom: 15px;
 }
 
 .cover-card figcaption {
-    margin-top: 8px;
-    font-size: 1em;
-    color: #6d3a8c;
-    font-style: italic;
-}
-
-/* footer */
-footer {
-    margin-top: 20px;
-    padding: 10px 0;
-    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1em;
+    color: #4a2c66;
+    font-weight: bold;
     text-align: center;
-    font-size: 0.9em;
-    color: #6d3a8c;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    line-height: 1.4;
 }
 
-/* 泡泡動畫 */
-.bubble {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    animation: float 10s infinite ease-in-out;
-    pointer-events: none;
-}
-
-.bubble:nth-child(1) {
-    top: 50%;
-    left: 10%;
-    animation-duration: 12s;
-    animation-delay: 0s;
-    width: 10px;
-    height: 10px;
-}
-
-.bubble:nth-child(2) {
-    top: 70%;
-    left: 50%;
-    animation-duration: 10s;
-    animation-delay: 1s;
-    width: 10px;
-    height: 10px;
-}
-
-.bubble:nth-child(3) {
-    top: 90%;
-    left: 80%;
-    animation-duration: 14s;
-    animation-delay: 2s;
-    width: 20px;
-    height: 20px;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-1200px) scale(1.5);
-        opacity: 0;
-    }
-}
-
-/* 可愛小圖 */
-#cute-image {
-    position: fixed;
-    bottom: 0px;
-    left: 5px;
-    z-index: 1000;
-    opacity: 1;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-
-#cute-image img {
-    width: 150px;
-    height: auto;
-}
-
-#cute-image:hover {
-    transform: scale(1.2);
-    opacity: 1;
-}
+/* --- 相簿內頁 --- */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
     padding: 20px;
-    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .gallery-grid figure {
     margin: 0;
-    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+    cursor: pointer; /* 手手游標 */
+    aspect-ratio: 1 / 1;
+    position: relative;
+}
+
+.gallery-grid figure:hover {
+    transform: scale(1.05);
+    z-index: 10;
 }
 
 .gallery-grid img {
     width: 100%;
-    height: auto;
-    max-width: 300px;        /* 限制每張最大寬度不超過 300px */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.gallery-grid img:hover {
-    transform: scale(1.05);
+/* --- Footer --- */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    color: #6d3a8c;
 }
-/* 登入畫面小企鵝 */
-.corner-image {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 100px;
-  height: auto;
-  z-index: 9999;
+
+/* --- 裝飾與動畫 --- */
+.bubble {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: float 10s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 0;
 }
+
+@keyframes float {
+    0% { transform: translateY(100vh) scale(1); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+}
+
+#cute-image {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 900;
+    transition: transform 0.3s;
+}
+
+#cute-image img {
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
+}
+
+#cute-image:hover {
+    transform: rotate(-10deg) scale(1.1);
+}
+
 .floral-border-decoration {
-  position: absolute; /* 讓它固定在視窗的某個位置，不隨捲動而移動 */
-  /*top: 330;*/          /* 如果你想放在頁面頂部 */
-  bottom: 0;  /* 如果你想放在頁面底部，則改用 bottom: 0; top: auto; */
-  left: 0;
-  width: 100%; /* 讓它佔滿整個視窗寬度 */
-  height: 50px; /* 固定高度，您可以根據花花圖片的高度調整 */
-  background-image: url('flower2.png'); /* 替換成你實際的圖片路徑 */
-  background-repeat: repeat-x; /* 讓圖片在水平方向重複 */
-  background-size: auto 100%; /* 讓背景圖片的高度填滿容器高度，寬度自動調整 */
-  z-index: 99; /* 確保它顯示在其他內容的上方，您可以調整這個值 */
-  /* 如果你的圖片本身不是半透明，可以加上 opacity */
-  opacity: 1; 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-image: url('flower.jpg'); /* 確保你的花朵圖檔名為 flower.jpg */
+    background-repeat: repeat-x;
+    background-size: contain;
+    z-index: 99;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.corner-image {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    z-index: 9999;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* --- Lightbox (燈箱特效) --- */
+#lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    cursor: zoom-out;
+}
+
+#lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    cursor: default;
 }

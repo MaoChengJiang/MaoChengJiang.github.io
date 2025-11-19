@@ -1,74 +1,66 @@
-const correctPassword = "20240518"; // 設定密碼
+// 登入頁面專用邏輯
+const correctPassword = "20240518"; // 密碼設定
 
 function checkPassword() {
-    const input = document.getElementById("password").value;
-    if (input === correctPassword) {
-        window.location.href = "home.html"; // 跳轉到主頁
+    const input = document.getElementById("password");
+    const val = input.value;
+    
+    if (val === correctPassword) {
+        // 登入成功：變綠色並跳轉
+        input.style.borderColor = "#4CAF50";
+        input.style.backgroundColor = "#e8f5e9";
+        setTimeout(() => {
+            window.location.href = "home.html"; 
+        }, 300);
     } else {
-        alert("輸入錯誤，請再輸入一次.");
+        // 登入失敗：震動提示
+        alert("哎呀！密碼錯誤，是不是忘記紀念日了？😤");
+        input.value = "";
+        input.focus();
+        
+        // 觸發 CSS 動畫
+        input.style.animation = "shake 0.5s";
+        setTimeout(() => input.style.animation = "", 500);
     }
 }
 
-function calculateDays() {
-    const startDate = new Date('2024-05-18');
-    const today = new Date();
-    const diffTime = Math.abs(today - startDate);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    document.getElementById('counter').innerText = `庭庭與誠誠已經戀愛 ${diffDays}天了喔 💕`;
+// 支援按 Enter 鍵登入
+document.getElementById("password")?.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        checkPassword();
+    }
+});
+
+// 產生背景泡泡
+function createBubbles() {
+    const container = document.getElementById("bubble-container") || document.body;
+    const bubbleCount = 15;
+
+    for (let i = 0; i < bubbleCount; i++) {
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.style.left = `${Math.random() * 100}%`;
+        
+        const size = Math.random() * 15 + 5; 
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+
+        bubble.style.animationDuration = `${Math.random() * 10 + 10}s`;
+        bubble.style.animationDelay = `${Math.random() * 5}s`;
+
+        container.appendChild(bubble);
+    }
 }
+createBubbles();
 
-// 如果在主頁，初始化天數計算
-if (document.getElementById('counter')) {
-    calculateDays();
-}
-const container = document.getElementById("bubble-container");
-
-for (let i = 0; i < 5; i++) { // 生成 10 個氣泡
-    const bubble = document.createElement("div");
-    bubble.className = "bubble";
-
-    // 隨機位置
-    bubble.style.left = `${Math.random() * 100}%`;
-    bubble.style.top = `${Math.random() * 100}%`;
-
-    // 隨機大小
-    const size = Math.random() * 20 + 5; // 大小範圍 20px ~ 70px
-    bubble.style.width = `${size}px`;
-    bubble.style.height = `${size}px`;
-
-    // 隨機動畫時長和延遲
-    bubble.style.animationDuration = `${Math.random() * 15 + 7}s`;
-    bubble.style.animationDelay = `${Math.random() * 2}s`;
-
-    container.appendChild(bubble);
-}
-// 動態加載相簿
-fetch('albums.json')
-  .then(res => res.json())
-  .then(albums => {
-    const container = document.getElementById('albums-container');
-    albums.forEach(album => {
-      // 相簿標題
-      const section = document.createElement('section');
-      section.className = 'album';
-
-      const title = document.createElement('h2');
-      title.textContent = album.name;
-      section.appendChild(title);
-
-      // 圖庫
-      const gallery = document.createElement('div');
-      gallery.className = 'gallery';
-      album.images.forEach(src => {
-        const fig = document.createElement('figure');
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = album.name;
-        fig.appendChild(img);
-        gallery.appendChild(fig);
-      });
-      section.appendChild(gallery);
-      container.appendChild(section);
-    });
-  })
-  .catch(err => console.error('載入相簿失敗：', err));
+// 注入震動動畫 Keyframes
+const styleSheet = document.createElement("style");
+styleSheet.innerText = `
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}`;
+document.head.appendChild(styleSheet);

@@ -7,22 +7,31 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="floral-border-decoration"></div>
   <header>
-    <div class="counter" id="counter"></div>
+    <div class="header-content">
+        <!-- 計數器 -->
+        <div class="counter" id="counter">計算中...</div>
+        <!-- 登出按鈕 -->
+        <button class="logout-btn" onclick="location.href='index.html'">登出</button>
+    </div>
   </header>
 
-  <main id="albums-container" class="covers-grid"></main>
+  <main id="albums-container" class="covers-grid">
+    <!-- 這裡會自動產生相簿卡片 -->
+  </main>
 
+  <!-- 花朵裝飾 -->
+  <div class="floral-border-decoration"></div>
+  
+  <!-- 左下角可愛小圖 -->
   <div id="cute-image">
-    <img src="cute2.png" alt="可愛小圖">
+    <img src="cute_OG.jpg" alt="可愛小圖">
   </div>
 
   <footer>誠誠最愛❤️庭庭了~~</footer>
 
-  <div id="bubble-container">
-    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
-  </div>
+  <!-- 泡泡背景 -->
+  <div id="bubble-container"></div>
 
   <script src="home.js"></script>
 </body>
