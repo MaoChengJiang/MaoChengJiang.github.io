@@ -98,9 +98,11 @@ a { text-decoration: none; color: inherit; }
 }
 
 .back-link {
-    position: absolute;
-    left: 0;
-    font-size: 1.1em;
+    position: relative;    /* 取消 absolute，改回 relative 讓它跟隨排版 */
+    display: inline-block; 
+    margin-top: 10px;      /* 與上方標題保持一點距離 */
+    
+    font-size: 1.0em;
     color: #6d3a8c;
     font-weight: bold;
     padding: 5px 15px;
