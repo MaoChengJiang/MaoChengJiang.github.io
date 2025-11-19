@@ -3,28 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>相簿回憶</title>
+  <title>相簿內頁</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <div class="header-content">
-        <a href="home.html" class="back-link">← 返回列表</a>
-        <h1 id="album-title" style="font-size: 1.2em; margin: 0;">載入中...</h1>
-        <div style="width: 60px;"></div> <!-- 佔位符，保持標題置中 -->
-    </div>
+    <h1 id="album-title">Loading…</h1>
+    <a href="home.html" class="back-link">← 返回主頁</a>
   </header>
 
   <main id="photos-container" class="gallery-grid">
-    <!-- 照片會由 JavaScript 自動插入這裡 -->
+    <!-- album.js 會把該相簿所有 <img> 置入此處 -->
   </main>
-  
-  <div class="floral-border-decoration"></div>
-
-  <!-- 燈箱：點擊放大後的顯示區域 -->
-  <div id="lightbox">
-    <img id="lightbox-img" src="" alt="Full size">
-  </div>
 
   <script src="album.js"></script>
 </body>
