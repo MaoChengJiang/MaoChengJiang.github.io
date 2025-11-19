@@ -14,7 +14,7 @@ function checkPassword() {
         }, 300);
     } else {
         // 登入失敗：震動提示
-        alert("哎呀！密碼錯誤，是不是忘記紀念日了？😤");
+        alert("密碼錯誤｡ﾟ(ﾟ´ω`ﾟ)ﾟ｡ 是不是忘記紀念日了？😤");
         input.value = "";
         input.focus();
         
